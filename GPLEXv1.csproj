@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net20;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net48</TargetFrameworks>
     <AssemblyName>Gplex</AssemblyName>
     <RootNamespace>QUT.Gplex</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
