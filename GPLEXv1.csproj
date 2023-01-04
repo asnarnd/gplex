@@ -2,53 +2,28 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net48</TargetFrameworks>
+    <GpLexYaccTargetFramework Condition=" '$(GpLexYaccTargetFramework)' == '' ">net48</GpLexYaccTargetFramework>
+    <TargetFramework>$(GpLexYaccTargetFramework)</TargetFramework>
     <AssemblyName>Gplex</AssemblyName>
     <RootNamespace>QUT.Gplex</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
   </PropertyGroup>
-
-  <!-- Pack settings -->
-  <PropertyGroup>
-    <NoPackageAnalysis>true</NoPackageAnalysis>
-    <NuspecFile>MSBuild/Gplex.nuspec</NuspecFile>
-    <IntermediatePackDir>$(MSBuildProjectDirectory)/bin/$(Configuration)/publish/</IntermediatePackDir>
-    <PublishDir>$(IntermediatePackDir)$(TargetFramework)/</PublishDir>
-    <NuspecProperties>publishDir=$([MSBuild]::NormalizeDirectory($(IntermediatePackDir)))</NuspecProperties>
-  </PropertyGroup>
-
-  <!-- Executes /t:Publish for all target frameworks before packing -->
-  <Target Name="NugetCrossTarget" AfterTargets="Build" Condition="'$(TargetFrameworks)' != ''">
-    <ItemGroup>
-      <_TargetFramework Include="$(TargetFrameworks)" />
-    </ItemGroup>
-    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="Publish" Properties="TargetFramework=%(_TargetFramework.Identity)" />
-  </Target>
-
-  <Target Name="NugetSingleTarget" AfterTargets="Build" Condition="'$(TargetFrameworks)' == ''">
-    <MSBuild Projects="$(MSBuildProjectFullPath)" Targets="Publish" />
-  </Target>
 
   <ItemGroup>
+    <None Remove="MSBuild\**" />
     <Compile Remove="SpecFiles\LookaheadHelper.cs" />
     <EmbeddedResource Include="SpecFiles\GplexBuffers.txt" />
     <EmbeddedResource Include="SpecFiles\gplexx.frame" />
     <EmbeddedResource Include="SpecFiles\ResourceHeader.txt" />
+    
+    <!-- VS project tree cleanup, probably can be removed later. -->
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
-  <ItemGroup>
-    <GplexFile Include="SpecFiles\gplex.lex">
-      <OutputFile>Scanner.cs</OutputFile>
-    </GplexFile>
-    <GppgFile Include="SpecFiles\gplex.y">
-      <OutputFile>Parser.cs</OutputFile>
-      <Arguments>/gplex /nolines</Arguments>
-    </GppgFile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Gplex.Tool" Version="0.0.1-preview1" PrivateAssets="All" />
-    <PackageReference Include="Gppg.Tool" Version="0.0.1-preview1" PrivateAssets="All" />
-  </ItemGroup>
 </Project>
