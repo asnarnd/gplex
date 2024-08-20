@@ -51,4 +51,16 @@
     <PackageReference Include="Gplex.Tool" Version="0.0.1-preview1" PrivateAssets="All" />
     <PackageReference Include="Gppg.Tool" Version="0.0.1-preview1" PrivateAssets="All" />
   </ItemGroup>
+
+  <ItemGroup>
+    <!-- Added explicitly for 'rebuild' target that somehow excludes them when
+      they don't already exist (they are generated, and supposedly re-added, by
+      GplexTool). -->
+    <Compile Remove="GplexBuffers.cs" />
+    <Compile Remove="Parser.cs" />
+    <Compile Remove="Scanner.cs" />
+    <Compile Include="GplexBuffers.cs" />
+    <Compile Include="Parser.cs" />
+    <Compile Include="Scanner.cs" />
+  </ItemGroup>
 </Project>
