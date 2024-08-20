@@ -1,0 +1,27 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <GplexToolsPropsDefined>true</GplexToolsPropsDefined>
+    
+    <GpGenLinkDirectory Condition=" '$(GpGenLinkDirectory)' == '' "></GpGenLinkDirectory>
+    
+    <IncrementalCleanDependsOn>
+      $(IncrementalCleanDependsOn);
+      SaveGplexOutputFromIncrementalClean
+    </IncrementalCleanDependsOn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <_GplexTool>dotnet "$(MSBuildThisFileDirectory)../../tools/net6.0/Gplex.dll"</_GplexTool>
+  </PropertyGroup>
+
+  <!-- Defaults for GplexFile items -->
+  <ItemDefinitionGroup>
+    <GplexFile>
+      <OutputFile>$(IntermediateOutputPath)%(Filename)%(Extension).cs</OutputFile>
+      <Arguments></Arguments>
+    </GplexFile>
+    <GplexFrame />
+  </ItemDefinitionGroup>
+
+</Project>

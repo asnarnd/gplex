@@ -286,3 +286,11 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# generated code
+Parser.cs
+Scanner.cs
+GplexBuffers.cs
+
+# gplex listing
+gplex.lst
