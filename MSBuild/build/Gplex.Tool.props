@@ -10,7 +10,7 @@
       SaveGplexOutputFromIncrementalClean
     </IncrementalCleanDependsOn>
 
-    <_GplexTool>dotnet "$(MSBuildThisFileDirectory)../tools/net6.0/Gplex.dll"</_GplexTool>
+    <_GplexTool>dotnet "$(MSBuildThisFileDirectory)../../tools/net6.0/Gplex.dll"</_GplexTool>
   </PropertyGroup>
 
   <!-- Defaults for GplexFile items -->
