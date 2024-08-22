@@ -6,6 +6,8 @@
     <authors>GPLEX developers</authors>
     <description>Gardens Point Scanner Generator (GPLEX) binary and enhanced MSBuild targets for SDK-style projects.</description>
     <repository type="git" url="https://github.com/asnarnd/gplex" />
+    <license type="file">LICENSE.md</license>
+    <readme>docs\README.md</readme>
   </metadata>
   <files>
     <!-- Placeholders indicating host project compatibility. The tools can be used in any .NET Framework and .NET Standard projects -->
@@ -31,5 +33,8 @@
 
     <file src="..\GPLEXcopyright.rtf" target="tools/net6.0/" />
     <file src="..\GPLEXcopyright.rtf" target="tools/net472/" />
+
+    <file src="..\README.md" target="docs/" />
+    <file src="..\LICENSE.md" target="" />
   </files>
 </package>
