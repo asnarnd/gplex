@@ -1,4 +1,6 @@
 <!-- CustomTool.targets -->
 <Project>
-  <Import Project="$(MSBuildThisFileDirectory)/../../tools/RunGplex.targets" />
+  <Import Condition=" '$(GplexToolsPropsDefined)' != 'true' "
+          Project="$(MSBuildThisFileDirectory)ASNA.Gplex.Tool.props" />
+  <Import Project="$(MSBuildThisFileDirectory)../../tools/RunGplex.targets" />
 </Project>

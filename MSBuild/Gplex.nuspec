@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
-    <id>Gplex.Tool</id>
+    <id>ASNA.Gplex.Tool</id>
     <version>0.0.1-preview1</version>
     <authors>GPLEX developers</authors>
-    <description>Gardens Point Scanner Generator (GPLEX) binary and MSBuild targets for SDK-style projects</description>
+    <description>Gardens Point Scanner Generator (GPLEX) binary and enhanced MSBuild targets for SDK-style projects.</description>
+    <repository type="git" url="https://github.com/asnarnd/gplex" />
+    <license type="file">LICENSE.md</license>
+    <readme>docs\README.md</readme>
   </metadata>
   <files>
     <!-- Placeholders indicating host project compatibility. The tools can be used in any .NET Framework and .NET Standard projects -->
@@ -12,20 +15,26 @@
     <file src="_._" target="lib/net20/" />
 
     <!-- Framework specific target that runs the real run target below on single target builds -->
-    <file src="build/Gplex.Tool.targets" target="build/netstandard1.0/Gplex.Tool.targets" />
-    <file src="build/Gplex.Tool.targets" target="build/net20/Gplex.Tool.targets" />
+    <file src="build/Gplex.Tool.props" target="build/netstandard1.0/ASNA.Gplex.Tool.props" />
+    <file src="build/Gplex.Tool.targets" target="build/netstandard1.0/ASNA.Gplex.Tool.targets" />
+    <file src="build/Gplex.Tool.props" target="build/net20/ASNA.Gplex.Tool.props" />
+    <file src="build/Gplex.Tool.targets" target="build/net20/ASNA.Gplex.Tool.targets" />
 
     <!-- Outer build target that runs the real run target below once on cross targeting builds -->
-    <file src="buildCrossTargeting\Gplex.Tool.targets" target="buildCrossTargeting/Gplex.Tool.targets" />
+    <file src="buildCrossTargeting\Gplex.Tool.props" target="buildCrossTargeting/ASNA.Gplex.Tool.props" />
+    <file src="buildCrossTargeting\Gplex.Tool.targets" target="buildCrossTargeting/ASNA.Gplex.Tool.targets" />
 
     <!-- The target that actually runs the custom tool -->
     <file src="RunGplex.targets" target="tools" />
 
-    <!-- The tool binaries. Note that the net20 binaries are included purely for distribution, they are not used by the build targets -->
-    <file src="$publishdir$\net20\**\*" target="tools/net20/" />
-    <file src="$publishdir$\netcoreapp2.0\**\*" target="tools/netcoreapp2.0/" />
+    <!-- The tool binaries. Note that the net472 binaries are included purely for distribution, they are not used by the build targets -->
+    <file src="$publishdir$\net472\**\*" target="tools/net472/" />
+    <file src="$publishdir$\net6.0\**\*" target="tools/net6.0/" />
 
-    <file src="..\GPLEXcopyright.rtf" target="tools/netcoreapp2.0/" />
-    <file src="..\GPLEXcopyright.rtf" target="tools/net20/" />
+    <file src="..\GPLEXcopyright.rtf" target="tools/net6.0/" />
+    <file src="..\GPLEXcopyright.rtf" target="tools/net472/" />
+
+    <file src="..\README.md" target="docs/" />
+    <file src="..\LICENSE.md" target="" />
   </files>
 </package>

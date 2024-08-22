@@ -1,5 +1,5 @@
 ﻿using System.IO;
-#if !NET20
+#if !NET20_OR_GREATER
 using System.Reflection;
 #endif
 
@@ -34,7 +34,7 @@ namespace QUT.Gplex.IncludeResources
 
         static string GetResourceString(string resourceName)
         {
-#if NET20
+#if NET20_OR_GREATER
             var assembly = typeof(Content).Assembly;
 #else
             var assembly = typeof(Content).GetTypeInfo().Assembly;
