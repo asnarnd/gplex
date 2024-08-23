@@ -3,8 +3,8 @@
   <ItemGroup>
     <Compile Remove="@(GplexFile->'%(OutputFile)')" />
     <Compile Include="@(GplexFile->'%(OutputFile)')">
-      <Link>$(GpGenLinkDirectory)%(Filename)%(Extension).cs</Link>
-      <DependentUpon>%(Identity)</DependentUpon>
+      <Link>$(GpGenLinkDirectory)%(Filename)%(Extension)</Link>
+      <DependentUpon>%(GplexFile.Identity)</DependentUpon>
       <Visible>true</Visible>
     </Compile>
   </ItemGroup>
@@ -39,8 +39,8 @@
       <Compile Remove="GplexBuffers.cs" />
       <Compile Remove="@(GplexFile->'%(OutputFile)')" />
       <Compile Include="@(GplexFile->'%(OutputFile)')">
-        <Link>$(GpGenLinkDirectory)%(Filename)%(Extension).cs</Link>
-        <DependentUpon>%(Identity)</DependentUpon>
+        <Link>$(GpGenLinkDirectory)%(Filename)%(Extension)</Link>
+        <DependentUpon>%(GplexFile.Identity)</DependentUpon>
         <Visible>true</Visible>
       </Compile>
     </ItemGroup>
