@@ -442,9 +442,10 @@ namespace QUT.Gplex.Parser
         public StringInterpretException(string text) : base(text) { }
         public StringInterpretException(string text, string key) : base(text) { this.key = key; }
         public StringInterpretException(string message, Exception inner) : base(message, inner) { }
+#if !NET
         protected StringInterpretException(SerializationInfo info, StreamingContext context)
             : base(info, context) { }
-
+#endif
     }
 
     [Serializable]
@@ -453,8 +454,10 @@ namespace QUT.Gplex.Parser
         public GplexInternalException() { }
         public GplexInternalException(string message) : base(message) { }
         public GplexInternalException(string message, Exception inner) : base(message, inner) { }
+#if !NET
         protected GplexInternalException(SerializationInfo info, StreamingContext context)
             : base(info, context) { }
+#endif
     }
 
     [Serializable]
@@ -463,7 +466,9 @@ namespace QUT.Gplex.Parser
         public TooManyErrorsException() { }
         public TooManyErrorsException(string message) : base(message) { }
         public TooManyErrorsException(string message, Exception inner) : base(message, inner) { }
+#if !NET
         protected TooManyErrorsException(SerializationInfo info, StreamingContext context)
             : base(info, context) { }
+#endif
     }
 }

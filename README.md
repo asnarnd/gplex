@@ -4,7 +4,7 @@ GPLEX is a scanner generator which produces lexical scanners written in C#.  The
 This repository now includes the full documentation for the scanner-generator.
 
 ## This Fork
-The repo is a fork of the original maintained by [@k-john-gough](https://github.com/k-john-gough/gplex). The generator produced here requires a .NET runtime compatible with .NET6 or .NETFramework 4.72. The MSBuild targets contained in the NuGet package produced by the repo support .NET SDK "multi-targeting" projects (minimum .NETStandard 2.0). Targets have been modified, with improvements in incremental compilation and use in modern IDEs.
+The repo is a fork of the original maintained by [@k-john-gough](https://github.com/k-john-gough/gplex). The generator produced here requires a .NET runtime compatible with .NET10 or .NETFramework 4.72. The MSBuild targets contained in the NuGet package produced by the repo support .NET SDK "multi-targeting" projects (minimum .NETStandard 2.0). Targets have been modified, with improvements in incremental compilation and use in modern IDEs.
 
 ## Features
 _GPLEX_ generates scanners based around finite state automata.  The generated automata have the number of states minimized by default, and have a large number of options for table compression.  The default compression scheme is chosen depending on the input alphabet cardinality, and almost always gives a reasonable result.  However a large number of options are available for the user to tune the behavior if necessary.

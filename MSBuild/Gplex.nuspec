@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>ASNA.Gplex.Tool</id>
-    <version>0.0.1-preview1</version>
+    <version>0.0.1-preview2</version>
     <authors>GPLEX developers</authors>
     <description>Gardens Point Scanner Generator (GPLEX) binary and enhanced MSBuild targets for SDK-style projects.</description>
     <repository type="git" url="https://github.com/asnarnd/gplex" />
@@ -29,9 +29,9 @@
 
     <!-- The tool binaries. Note that the net472 binaries are included purely for distribution, they are not used by the build targets -->
     <file src="$publishdir$\net472\**\*" target="tools/net472/" />
-    <file src="$publishdir$\net6.0\**\*" target="tools/net6.0/" />
+    <file src="$publishdir$\net10.0\**\*" target="tools/net10.0/" />
 
-    <file src="..\GPLEXcopyright.rtf" target="tools/net6.0/" />
+    <file src="..\GPLEXcopyright.rtf" target="tools/net10.0/" />
     <file src="..\GPLEXcopyright.rtf" target="tools/net472/" />
 
     <file src="..\README.md" target="docs/" />
