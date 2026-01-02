@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>ASNA.Gplex.Tool</id>
-    <version>0.0.1-preview2</version>
+    <version>0.0.1-preview3</version>
     <authors>GPLEX developers</authors>
     <description>Gardens Point Scanner Generator (GPLEX) binary and enhanced MSBuild targets for SDK-style projects.</description>
     <repository type="git" url="https://github.com/asnarnd/gplex" />
